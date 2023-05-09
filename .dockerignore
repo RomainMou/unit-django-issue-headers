@@ -1,0 +1,10 @@
+.*
+
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+**/__pycache__
+**/tests
+
+Dockerfile

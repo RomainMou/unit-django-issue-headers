@@ -1,0 +1,28 @@
+{
+    "listeners": {
+        "0.0.0.0:8000": {
+            "pass": "routes"
+        },
+        "[::]:8000": {
+            "pass": "routes"
+        }
+    },
+    "routes": [
+        {
+            "action": {
+                "pass": "applications/test"
+            }
+        }
+    ],
+    "applications": {
+        "test": {
+            "type": "python 3",
+            "working_directory": "/opt/test",
+            "path": "/opt/test",
+            "module": "djangotest.wsgi",
+            "home": "/opt/venv",
+            "processes": 1
+        }
+    },
+    "access_log": "/dev/stdout"
+}
