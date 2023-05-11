@@ -6,8 +6,13 @@ def index(request):
     return HttpResponse("Hi.🙂\n")
 
 def ascii(request):
-    return HttpResponse(
-        "Hello, HTTP_ASCIITEST is ascii? " + str(request.META.get("HTTP_ASCIITEST").isascii()) + "\n")
+    test_value = request.META.get("HTTP_ASCIITEST")
+    response = "'{value}' ({len}) {ascii}\n".format(
+       value=test_value,
+       len=len(test_value),
+       ascii='[ascii]' if test_value.isascii() else '[non-ascii]'
+    )
+    return HttpResponse(response)
 
 def timeout(request):
     for i in range(5):
