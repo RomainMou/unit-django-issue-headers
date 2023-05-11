@@ -7,4 +7,4 @@ RUN python -m venv /opt/venv \
     && /opt/venv/bin/pip install gunicorn \
     && /opt/venv/bin/pip install -r requirements.txt
 
-CMD ["/opt/venv/bin/gunicorn"  , "-b", "0.0.0.0:8000"]
+CMD ["/opt/venv/bin/gunicorn"  , "-b", "0.0.0.0:8000", "-t", "0"]
